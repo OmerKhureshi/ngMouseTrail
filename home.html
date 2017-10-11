@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ngMouseTrail</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://use.fontawesome.com/153f58ab22.js"></script>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+
+<!--Score-->
+<h3 style="text-align: center">Blocks passed:
+    <span ng-style="{'color': safeTroddenColor}">
+        {{ score }}
+    </span>
+
+    &#9670; Time:
+    <span ng-style="{'color': safeTroddenColor}">
+        {{ timeSoFar }}
+    </span>
+
+    <!--<span style="font-size: x-large">-->
+    &#9670; Final Score:
+    <span ng-style="{'color': safeTroddenColor}">
+        {{ finalScore }}
+    </span>
+    <!--</span>-->
+
+    <span ng-show="newMaxScore" ng-style="{'color': dangerTroddenColor}">
+        <span style="color: white;">
+            &#9670;
+        </span>
+            New High Score:
+        <span ng-style="{'color': safeTroddenColor}">
+            {{ finalScore }}
+        </span>
+    </span>
+</h3>
+
+
+
+<!--Instructions -->
+<div class="instructions" >
+    <h3 >Instructions:
+        <h4>Start at the <span ng-style="{'color': safeTroddenColor}">Green Block</span>.</h4>
+        <h4>End at the other <span ng-style="{'color': safeTroddenColor}">Green Block</span>.</h4>
+        <h4>Move mouse over <span ng-style="{'color': safeColor}">Blue Blocks</span>.</h4>
+        <h4>Do not hover over <span ng-style="{'color': dangerColor}">Pink Blocks</span>.</h4>
+    </h3>
+</div>
+
+
+<!--Game blocks-->
+<div class="boxContainer"
+     ng-style="boxContainerStyle"
+     ng-mouseleave="onMouseLeaveContainer()">
+
+    <div>
+        <i class="fa fa-arrow-down"
+           aria-hidden="true"></i>
+        Start Here
+    </div>
+    <!--<div> <span style="font-size: x-large">&#9660; </span>Start Here</div>-->
+
+    <div class="col"
+         ng-repeat="row in matrix">
+
+        <div class="row"
+             ng-repeat="col in row track by $index">
+
+            <div class="box"
+                 ng-mouseenter="onMouseEnter($event, $parent.$index, $index)"
+                 ng-mouseleave="onMouseLeave($event, $parent.$index, $index)"
+                 ng-style="{'background-color':setStyling($parent.$index, $index)}">
+                <!--{{ $parent.$index + ':' + $index}}-->
+            </div>
+        </div>
+    </div>
+
+    <div style="clear: both; display: block;">
+    </div>
+</div>
+
+<div class="gameEndMessages">
+    <!--Game Over Message-->
+    <h1 ng-show="gameOver"
+        style="text-align: center">
+        Oops, you went over the
+        <span ng-style="{'color': dangerColor}">
+        pink block
+    </span>. Game Over!
+    </h1>
+
+    <!--Game Over Message - exit container-->
+    <h1 ng-show="gameOverExitContiainer"
+        style="text-align: center">
+        Whoa, you can't just take mouse outside the
+        <span ng-style="{'color': dangerColor}">
+        MATRIX
+    </span> like that. Game Over
+        <i class="fa fa-meh-o" aria-hidden="true"></i>
+    </h1>
+
+
+    <!--Game Won Message-->
+    <h1 ng-show="gameWon"
+        style="text-align: center">
+    <span ng-style="{'color': white}">
+        Awesome! You won.
+        <i class="fa fa-trophy" aria-hidden="true"></i>
+        !!!
+    </span>
+    </h1>
+
+</div>
+
+<div class="footer">
+    <h4 style="text-align: center">
+        <p class="love">
+            Made with loads and loads of <i class="fa fa-heart" aria-hidden="true"></i>
+            and <i class="fa fa-fire" aria-hidden="true"></i>
+            and <i class="fa fa-smile-o" aria-hidden="true"></i>
+        </p>
+    </h4>
+</div>
+</body>
+</html>

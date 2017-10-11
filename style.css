@@ -1,0 +1,83 @@
+body {
+    background-color: #0f213d;
+    font-family: monospace;
+    color: white;
+}
+
+.box {
+    width: 20px;
+    height: 20px;
+    /*margin: 0.5px;*/
+    float: left;
+    transition: all .25s ease-in-out;
+    border: 0.5px solid grey;
+}
+
+.instructions {
+    float: left;
+    margin-top: 50px;
+}
+
+.boxContainer {
+    margin-left: 210px;
+    margin-top: 50px;
+    float: left;
+}
+
+.gameEndMessages {
+    /*background-color: #a1f1eb; opacity:0.8;*/
+    background-color: black;
+    opacity: 0.9;
+    font-family: Serif;
+    /*margin-top: 50px;*/
+    color: white;
+    font-size: 35px;
+    width: 98%;
+    margin: 0 auto 0 auto;
+    clear: both;
+    position: absolute;
+    bottom: 50px;
+    border-radius: 40px;
+    /*border: 1px solid white;*/
+    /*left: 20%;*/
+}
+
+
+.footer {
+    margin-top: 50px;
+    clear: both;
+    position: absolute;
+    bottom: 0px;
+    left: 36%;
+}
+.fa.fa-fire {
+    color: yellow;
+}
+.fa.fa-heart {
+    color: red;
+}
+.fa.fa-smile-o {
+    color: aqua;
+}
+.fa.fa-meh-o {
+    color: red;
+}
+.fa.fa-arrow-down {
+    /*color: #7bd389;*/
+    color: white;
+}
+.fa.fa-trophy {
+    color: #FFFF00  ;
+}
+
+/*.biohazard {*/
+    /*width: 0;*/
+    /*height: 0;*/
+    /*border-bottom: 20px solid black;*/
+    /*border-top: 20px solid black;*/
+    /*border-left: 20px solid yellow;*/
+    /*border-right: 20px solid yellow;*/
+    /*-moz-border-radius: 20px;*/
+    /*-webkit-border-radius: 20px;*/
+    /*border-radius: 20px;*/
+/*}*/
